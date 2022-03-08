@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Eventos</title>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="../static/css/interfaz.css">
+                </head>
+                <body>
+                    <header th:replace="layout/plantilla :: header"/>
+                    <h2>Datos del evento</h2>
+                    <a th:href="@{/detalle}">Regresar</a>
+                    <br>
+                        <!-- Esto es un formulario -->
+                        <form th:object = "${concierto}"
+                              th:action="@{/save}"
+                              method="POST"
+                              >
+                            <br>
+                                <div class="form-group-row">
+                                    <label for="nombre">Artista</label>
+                                    <input type="text" th:field="*{Artista}"  placeholder= "Artista" id="artista" aria-describedby="emailHelp">
+                                </div> 
+                                <div class="form-group-row">
+                                    <label for="nombre">Costo</label>
+                                    <input type="text" th:field="*{Costo}"  placeholder= "Costo" id="costo" aria-describedby="emailHelp">
+                                </div> 
+                                <div class="form-group-row">
+                                    <label for="nombre">Fecha</label>
+                                    <input type="text" th:field="*{Fecha}"  placeholder= "Fecha" id="fecha" aria-describedby="emailHelp">
+                                </div> 
+                                <div class="form-group-row">
+                                    <label for="nombre">Capacidad</label>
+                                    <input type="text" th:field="*{Capacidad}"  placeholder= "Capacidad" id="capacidad" aria-describedby="emailHelp">
+                                </div> 
+                                <div class="form-group-row">
+                                    <label for="nombre">Lugar</label>
+                                    <input type="text" th:field="*{Lugar}"  placeholder= "Lugar" id="lugar" aria-describedby="emailHelp">
+                                </div> 
+                                <br>
+                                    <button type="submit" class="btn btn-pimary" value="Guardar">Submit</button>
+                                    </form>
+
+                                    <!-- Esto es un formulario -->
+                                    <footer th:replace="layout/plantilla :: footer"/>
+                                    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+                                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+                                    </body>
+                                    </html>

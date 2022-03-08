@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <h2>Datos de Persona</h2>
+        <a th:href="@{/}">Regresar</a>
+        <br>
+            <!-- Esto es un formulario -->
+            <form th:object = "${persona}"
+                  th:action="@{/save}"
+                  method="POST"
+                  >
+                <br>
+                <div class="form-group-row">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" th:field="*{Nombre}"  placeholder= "Nombre Cliente" id="nombre" aria-describedby="emailHelp">
+                </div> 
+                <div class="form-group-row">
+                    <label for="nombre">Apellido1</label>
+                    <input type="text" th:field="*{Apellido1}"  placeholder= "Primer Apellido" id="Apellido1" aria-describedby="emailHelp">
+                </div> 
+                <div class="form-group-row">
+                    <label for="nombre">Apellido2</label>
+                    <input type="text" th:field="*{Apellido2}"  placeholder= "Segundo Apellido" id="Apellido2" aria-describedby="emailHelp">
+                </div> 
+                <div class="form-group-row">
+                    <label for="nombre">Email</label>
+                    <input type="text" th:field="*{Email}"  placeholder= "Email" id="Email" aria-describedby="emailHelp">
+                </div> 
+                <div class="form-group-row">
+                    <label for="nombre">Telefono</label>
+                    <input type="text" th:field="*{Telefono}"  placeholder= "Telefono" id="Telefono" aria-describedby="emailHelp">
+                </div> 
+                <div class="form-group-row">
+                    <label for="nombre">Pais</label>
+                    <input type="text" th:field="*{Pais}"  placeholder= "Pais" id="Pais" aria-describedby="emailHelp">
+                </div>
+                    <br>
+                <button type="submit" class="btn btn-pimary" value="Guardar">Submit</button>
+            </form>
+           
+            <!-- Esto es un formulario -->
+            <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>

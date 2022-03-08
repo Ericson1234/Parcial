@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Eventos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../static/css/form.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </head>
+    <body>
+      
+        <h1 th:text="${titulo}"></h1>
+        <table>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Artista</th>
+                    <th scope="col">Costo</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Capacidad</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">Eliminar</th>
+                    <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="user : ${eventos}">
+                <tr>
+                    <td th:text="${user.getArtista}"></td>
+                    <td th:text="${user.getCosto}"></td>
+                    <td th:text="${user.getFecha}"></td>
+                    <td th:text="${user.getCapacidad}"></td>
+                    <td th:text="${user.getLugar}"></td>
+                    <td>
+                        <a th:href="@{/ListarId/{id} (id=${user.getId})}">Editar</a>
+                    </td>
+                    <td>
+                        <a th:href="@{/delete/{id} (id=${user.getId})}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </table>
+    </tbody>
+    </body>
+</html>

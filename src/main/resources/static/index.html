@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org>
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <h1>Listado de Personas</h1>
+        <a th:href="@{/nuevaPersona}">Nuevo Persona</a>
+        <div th:if="${personas != null !persona.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Primer Apellido</th>
+                        <th>Segundo Apellido</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Eliminar</th>
+                        <th>Modificar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="persona : ${personas}">
+                        <td th:text="${persona.nombre}"></td>
+                        <td th:text="${persona.apellido1}"></td>
+                        <td th:text="${persona.apellido2}"></td>
+                        <td th:text="${persona.correo}"></td>
+                        <td th:text="${persona.telefono}"></td>
+                        <td><a th:href="@{/eliminarPersona/} + @{persona.idPersona}">Eliminar</a></td>
+                        <td><a th:href="@{/modificarPersona/} + @{persona.idPersona}">Modificar</a></td>
+                        
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
+        <div th:if="${personas == null or personas.empty}">
+            No tenemos lista de personas que mostrar...
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
